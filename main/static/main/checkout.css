@@ -1,0 +1,59 @@
+.wrapper{
+    border: 1px solid grey;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.item{
+    border: 1px solid grey;
+    width: 40%;
+    background-color: #edeef0;
+    margin: 5%;
+    padding: 2%;
+}
+
+li{
+    list-style-type: none;
+}
+
+.left-side{
+    text-align: center;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-side{
+    height: 70%;
+    position: relative;
+}
+
+.right-side-product{
+    margin: 3%;
+}
+
+.product-input{
+    width: 10%;
+}
+
+
+.buy{
+    margin-top: 10%;
+}
+
+h2{
+    margin: 2%;
+}
+
+.total-price{
+   position: absolute;
+   bottom: 10;
+}
+
+.contact-info{
+    margin-bottom: 20%;
+}

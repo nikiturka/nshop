@@ -1,0 +1,58 @@
+h2{
+    margin-top: 2%;
+}
+
+.bgpic{
+    border: 1px solid grey;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80em;
+    height: 40em;
+    margin-top: 3%;
+}
+
+.big-img{
+    height: 100%;
+    width: 100%;
+}
+
+h1{
+    margin-top: 2%;
+    margin-bottom: -1%;
+}
+
+.img-card{
+    margin: 1%;
+}
+
+.img-responsive{
+    height: 40%;
+    width: 90%;
+    margin-top: 10%;
+    border: 1px solid grey;
+}
+
+.name{
+    margin-top: 10%;
+}
+
+.product-card{
+    margin-top: 8%;
+    height: 100%;
+    border: 1px solid lightgrey;
+    background-color: white;
+    position: relative;
+    padding: 1%;
+    text-align: center;
+}
+
+.discount{
+    position: absolute;
+    top: 30%;
+    width: 30%;
+    margin-left: -1%;
+    background: lightgreen;
+    color: white;
+}
+

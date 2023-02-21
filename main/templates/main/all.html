@@ -1,0 +1,39 @@
+{% extends 'main/parent.html' %}
+{% load static %}
+
+    {% block links %}<link rel="stylesheet" href="{% static 'main/all.css' %}">{% endblock %}
+    {% block title %}Products{% endblock %}
+
+{% block content %}
+<h3 align = "center">Here you can see all the product we have in our shop!</h3>
+
+<div class = "container">
+    <div class = "row">
+        {% for image in image %}
+             <div class = "col-lg-3">
+
+                 <div class = "product-card">
+
+                     <div class = 'img-card'>
+                         <a href="{% url 'product' image.product.id %}">
+                             <img src='{{ image.image.url }}' class = 'img-responsive'>
+                         </a>
+                     </div>
+
+                     <h5 class = "name">{{ image.product.name }}</h5>
+                     <p>{{ image.product.description|truncatechars_html:40 }}</p>
+                     <p>Price: {{ image.product.price }} €</p>
+
+                     <div class = buy-button>
+                         <a href="{% url 'product' image.product.id %}">
+                             <button class = 'btn btn-success'>Add to cart</button>
+                         </a>
+                     </div>
+
+                 </div>
+
+             </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

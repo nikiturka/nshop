@@ -1,0 +1,28 @@
+.img-card{
+    margin: 1%;
+}
+
+.img-responsive{
+    height: 40%;
+    width: 90%;
+    margin-top: 10%;
+    border: 1px solid grey;
+}
+
+.name{
+    margin-top: 10%;
+}
+
+.product-card{
+    margin-top: 8%;
+    height: 100%;
+    border: 1px solid lightgrey;
+    background-color: white;
+    position: relative;
+    padding: 1%;
+    text-align: center;
+}
+
+h3{
+    margin-top: 30px;
+}

@@ -1,0 +1,78 @@
+{% extends 'main/parent.html' %}
+{% load static %}
+
+    {% block links %}<link rel="stylesheet" href="{% static 'main/product.css' %}">{% endblock %}
+    {% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<div class = "path">
+    <p><a href="{% url 'main' %}" class = "path">Main page</a> > {{ product.name }}</p>
+</div>
+
+ <div class = "general">
+
+    <div class = "container">
+        <div class = "row">
+
+            <div class = "col-lg-6 image-container">
+                <div class = "image">
+                {% for img in product_img %}
+                     <img src="{{ img.image.url }}" title = '{{ product.name }}'>
+                 {% endfor %}
+                </div>
+            </div>
+
+            <div class = "col-lg-6 right-side">
+                <h3 align = "center" class = "test">{{ product.name }}</h3>
+                <hr>
+                <p class = "description">{{ product.description }}</p>
+                <br>
+                Price: {{ product.price }} €
+                <hr>
+
+                <form action="{% url 'cart_add' %}" class = "quantity-form">{% csrf_token %}
+                    <input type="number"  class = "quantity" placeholder="Quantity">
+                </form>
+
+                <div class = "btn-buy">
+
+                    <button class = 'btn btn-success plus' id = "plus"
+                            data-name = "{{ product.name }}"
+                            data-price = "{{ product.price }}"
+                            data-id = "{{ product.id }}">
+                        Add to cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+ <div class = "container parameters">
+     <div class = "row">
+         <div class = "col-lg-6">
+             Product details:
+             <br>
+             <br>
+             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+         </div>
+         <div class = "col-lg-6">
+             Delivery info:
+             <br>
+             <br>
+             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+         </div>
+     </div>
+ </div>
+
+{% endblock %}

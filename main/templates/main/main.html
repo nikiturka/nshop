@@ -1,0 +1,86 @@
+{% extends 'main/parent.html' %}
+{% load static %}
+
+    {% block links %}<link rel="stylesheet" href="{% static 'main/main.css' %}">{% endblock %}
+    {% block title %}NShop{% endblock %}
+
+{% block content %}
+<h1 align="center">Welcome to the NShop!</h1>
+
+  <div class = "slider bgpic">
+     <img class = "big-img" src="{% static 'main\img\bg2.jpg' %}">
+ </div>
+
+ <h2 align = center class = "test">NEW ARRIVALS</h2>
+
+<div class = "section">
+    <div class = "container">
+        <div class = "row">
+            {% for each in product_img %}
+                {% if each.product.is_new == True %}
+                    <div class = "col-lg-3">
+                        <div class = "product-card">
+                                <div class = 'img-card'>
+                                    <a href="{% url 'product' each.product.id %}">
+                                        <img src='{{ each.image.url }}' class = 'img-responsive'>
+                                    </a>
+                                </div>
+                                {% if each.product.discount != 0 %}
+                                    <div class = 'discount'>
+                                        {{ each.product.discount }} %
+                                    </div>
+                                {% endif %}
+                                <h5 class = "name">{{ each.product.name }}</h5>
+                                <p>{{ each.product.description|truncatechars_html:40 }}</p>
+                                <p>Price: {{ each.product.price }} €</p>
+                                <div class = buy-button>
+                                    <a href="{% url 'product' each.product.id %}">
+                                        <button class = 'btn btn-success'>Add to cart</button>
+                                    </a>
+                                 </div>
+
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+  <div class = "plugin bgpic">
+     <img class = "big-img" src="{% static 'main\img\newbgg.png' %}">
+ </div>
+
+ <h2 align = center>HOT SALES</h2>
+
+<div class = "section">
+    <div class = "container">
+        <div class = "row">
+            {% for each in product_img %}
+                {% if each.product.discount != 0 %}
+                    <div class = "col-lg-3">
+                        <div class = "product-card">
+                                <div class = 'img-card'>
+                                    <a href="{% url 'product' each.product.id %}">
+                                        <img src='{{ each.image.url }}' class = 'img-responsive'>
+                                    </a>
+                                </div>
+                                <div class = 'discount'>
+                                    {{ each.product.discount }} %
+                                </div>
+                                    <h5 class = "name">{{ each.product.name }}</h5>
+                                    <p>{{ each.product.description|truncatechars_html:40 }}</p>
+                                    <p>Price: {{ each.product.price }} €</p>
+                                    <div class = buy-button>
+                                        <a href="{% url 'product' each.product.id %}">
+                                            <button class = 'btn btn-success'>Add to cart</button>
+                                        </a>
+                                    </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
