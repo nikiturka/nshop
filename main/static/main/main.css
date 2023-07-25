@@ -8,6 +8,10 @@
     margin-top: 3%;
 }
 
+.big-img{
+    height: 100%;
+    width: 100%;
+}
 
 .img-responsive{
     height: 40%;
