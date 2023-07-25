@@ -1,11 +1,11 @@
 {% extends 'main/parent.html' %}
 {% load static %}
 
-    {% block links %}<link rel="stylesheet" href="{% static 'main/checkout.css' %}">{% endblock %}
-    {% block title %}Checkout{% endblock %}
+{% block links %}<link rel="stylesheet" href="{% static 'main/checkout.css' %}">{% endblock %}
+{% block title %}Checkout{% endblock %}
 
 {% block content %}
-<h2 align="center">Confirm your purchase now!</h2>
+<h2 align="center" style="margin: 2%">Confirm your purchase now!</h2>
 
  <form method="post" class="buy-form">{% csrf_token %}
     <div class="wrapper">
@@ -15,18 +15,35 @@
 
                     <div>
                         <span class="form-error">{{ form.name.errors }}</span>
-                        <input class="input-left" type="text" name="{{ form.name.html_name }}" placeholder="Name and surname">
+                        <input
+                                class="input-left"
+                                type="text"
+                                name="{{ form.name.html_name }}"
+                                placeholder="Name and surname"
+                        >
                     </div>
 
                     <br>
 
                     <div>
                         <span class="form-error">{{ form.phone_number.errors }}</span>
-                        <input class="input-left" type="text" name="{{ form.phone_number.html_name }}" placeholder="Phone number">
+                        <input
+                                class="input-left"
+                                type="text"
+                                name="{{ form.phone_number.html_name }}"
+                                placeholder="Phone number"
+                        >
                     </div>
 
                     <div>
-                        <button type = "submit" class="btn btn-success buy" id="buy">Buy now</button>
+                        <button
+                                type = "submit"
+                                class="btn btn-success buy"
+                                id="buy"
+                                style="margin-top: 10%"
+                        >
+                            Buy now
+                        </button>
                     </div>
                 </div>
             </div>
@@ -37,8 +54,18 @@
                 <ul class="cart-ul" id="cart-ul">
 
                     {% for product in products_in_cart %}
-                        <li class="right-side-product" id="right-side-product">
-                            <input type="number" value="{{ product.number }}" class="product-input" name="product_in_cart_{{ product.id }}">
+                            <li
+                                    class="right-side-product"
+                                    id="right-side-product"
+                                    style="margin: 3%;
+                                    list-style-type: none;"
+                            >
+                            <input type="number"
+                                   value="{{ product.number }}"
+                                   class="product-input"
+                                   name="product_in_cart_{{ product.id }}"
+                                   style="width: 10%"
+                            >
                             {{ product.product.name }}
                             for <span class = "product-price" id="product-price">{{ product.price_per_item }}</span> €
                             <span class="total" id="total" hidden>{{ product.total_price }}</span>
@@ -49,21 +76,6 @@
 
                 <h5 class="total-price" id="total-price" hidden></h5>
             </div>
-
-       <!-- <div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <img src="{% static 'favicon.jpg' %}" class="rounded mr-2">
-                <strong class="mr-auto">Bootstrap</strong>
-                <small>right now</small>
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="toast-body">
-                Hello, world! This is a toast message.
-            </div>
-        </div> -->
-
     </div>
  </form>
 {% endblock %}

@@ -73,23 +73,4 @@ $(document).ready(function(){
 
         cartUpdate(id, quantity, is_delete=true);
     })
-
-    //CART TOTAL PRICE COUNT (Doesn't work now)
-    var total_order_price = 0;
-    $(".total").each(function(){
-        total_order_price += parseInt($(this).text());
-    });
-    if(total_order_price > 0){
-        $(".total-price").text("Total price: " + total_order_price + " €");
-    }
-
-    //TOAST
-    var option = {
-        animation: true,
-        delay: 2000
-    };
-
-    $('.buy-form').on('submit', function(){
-        alert('Your order was received, we will call you soon. Stay in touch!');
-    })
 });

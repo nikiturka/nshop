@@ -1,13 +1,13 @@
 {% extends 'main/parent.html' %}
 {% load static %}
 
-    {% block links %}<link rel="stylesheet" href="{% static 'main/product.css' %}">{% endblock %}
-    {% block title %}{{ product.name }}{% endblock %}
+{% block links %}<link rel="stylesheet" href="{% static 'main/product.css' %}">{% endblock %}
+{% block title %}{{ product.name }}{% endblock %}
 
 {% block content %}
-<div class = "path">
-    <p><a href="{% url 'main' %}" class = "path">Main page</a> > {{ product.name }}</p>
-</div>
+<br>
+<br>
+<br>
 
  <div class = "general">
 
