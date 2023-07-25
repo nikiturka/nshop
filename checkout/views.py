@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 def checkout(request):
     session_key = request.session.session_key
-    products_in_cart = ProductInCart.objects.filter(session_key=session_key, is_active=True)
+    products_in_cart = ProductInCart.objects.filter(session_key=session_key, is_active=True).select_related('product')
     form = UserForm(request.POST or None)
 
     if request.POST:
